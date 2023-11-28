@@ -21,17 +21,13 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   @HiveField(0)
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @HiveField(1)
   String get name => throw _privateConstructorUsedError;
   @HiveField(2)
   String get email => throw _privateConstructorUsedError;
   @HiveField(3)
-  String get phone => throw _privateConstructorUsedError;
-  @HiveField(4)
-  int get age => throw _privateConstructorUsedError;
-  @HiveField(5)
-  String get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,12 +40,10 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {@HiveField(0) int id,
+      {@HiveField(0) String id,
       @HiveField(1) String name,
       @HiveField(2) String email,
-      @HiveField(3) String phone,
-      @HiveField(4) int age,
-      @HiveField(5) String createdAt});
+      @HiveField(3) DateTime createdAt});
 }
 
 /// @nodoc
@@ -68,15 +62,13 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? id = null,
     Object? name = null,
     Object? email = null,
-    Object? phone = null,
-    Object? age = null,
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -85,18 +77,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      age: null == age
-          ? _value.age
-          : age // ignore: cast_nullable_to_non_nullable
-              as int,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime,
     ) as $Val);
   }
 }
@@ -109,12 +93,10 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@HiveField(0) int id,
+      {@HiveField(0) String id,
       @HiveField(1) String name,
       @HiveField(2) String email,
-      @HiveField(3) String phone,
-      @HiveField(4) int age,
-      @HiveField(5) String createdAt});
+      @HiveField(3) DateTime createdAt});
 }
 
 /// @nodoc
@@ -130,15 +112,13 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? email = null,
-    Object? phone = null,
-    Object? age = null,
     Object? createdAt = null,
   }) {
     return _then(_$UserImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -147,39 +127,29 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      age: null == age
-          ? _value.age
-          : age // ignore: cast_nullable_to_non_nullable
-              as int,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$UserImpl with DiagnosticableTreeMixin implements _User {
+class _$UserImpl implements _User {
   const _$UserImpl(
       {@HiveField(0) required this.id,
       @HiveField(1) required this.name,
       @HiveField(2) required this.email,
-      @HiveField(3) required this.phone,
-      @HiveField(4) required this.age,
-      @HiveField(5) required this.createdAt});
+      @HiveField(3) required this.createdAt});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
 
   @override
   @HiveField(0)
-  final int id;
+  final String id;
   @override
   @HiveField(1)
   final String name;
@@ -188,30 +158,11 @@ class _$UserImpl with DiagnosticableTreeMixin implements _User {
   final String email;
   @override
   @HiveField(3)
-  final String phone;
-  @override
-  @HiveField(4)
-  final int age;
-  @override
-  @HiveField(5)
-  final String createdAt;
+  final DateTime createdAt;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User(id: $id, name: $name, email: $email, phone: $phone, age: $age, createdAt: $createdAt)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'User'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('phone', phone))
-      ..add(DiagnosticsProperty('age', age))
-      ..add(DiagnosticsProperty('createdAt', createdAt));
+  String toString() {
+    return 'User(id: $id, name: $name, email: $email, createdAt: $createdAt)';
   }
 
   @override
@@ -222,16 +173,13 @@ class _$UserImpl with DiagnosticableTreeMixin implements _User {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.phone, phone) || other.phone == phone) &&
-            (identical(other.age, age) || other.age == age) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, email, phone, age, createdAt);
+  int get hashCode => Object.hash(runtimeType, id, name, email, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -249,18 +197,16 @@ class _$UserImpl with DiagnosticableTreeMixin implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {@HiveField(0) required final int id,
+      {@HiveField(0) required final String id,
       @HiveField(1) required final String name,
       @HiveField(2) required final String email,
-      @HiveField(3) required final String phone,
-      @HiveField(4) required final int age,
-      @HiveField(5) required final String createdAt}) = _$UserImpl;
+      @HiveField(3) required final DateTime createdAt}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
   @override
   @HiveField(0)
-  int get id;
+  String get id;
   @override
   @HiveField(1)
   String get name;
@@ -269,13 +215,7 @@ abstract class _User implements User {
   String get email;
   @override
   @HiveField(3)
-  String get phone;
-  @override
-  @HiveField(4)
-  int get age;
-  @override
-  @HiveField(5)
-  String get createdAt;
+  DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>
